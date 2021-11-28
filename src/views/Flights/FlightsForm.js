@@ -1,13 +1,15 @@
 import * as React from "react"
 import { useFormik } from "formik"
+import { useNavigate } from "react-router-dom"
 import Snackbar from "../../components/Snackbar"
 import validationSchema from "./validationSchema"
 
-const { useEffect, useState } = React
+const { useState } = React
 
-const FlightsForm = ({ flightsPost, citiesGet }) => {
-  const [citiesTo, setCitiesTo] = useState([])
-  const [citiesFrom, setCitiesFrom] = useState([])
+const FlightsForm = ({ flightsPost, cities }) => {
+  const navigate = useNavigate()
+  const [citiesTo] = useState(cities || [])
+  const [citiesFrom] = useState(cities || [])
   const formik = useFormik({
     initialValues: {
       to: "",
@@ -19,13 +21,6 @@ const FlightsForm = ({ flightsPost, citiesGet }) => {
     onSubmit: handleSubmit,
   })
 
-  useEffect(() => {
-    citiesGet().then(({ data }) => {
-      setCitiesTo(data)
-      setCitiesFrom(data)
-    })
-  }, [])
-
   async function handleSubmit(values) {
     try {
       await flightsPost({
@@ -34,13 +29,14 @@ const FlightsForm = ({ flightsPost, citiesGet }) => {
         time: values.time,
         seats: values.seats,
       })
+      navigate("/flights/available")
     } catch {
       Snackbar.show({ message: "Lo sentimos ha ocurrido un error!" })
     }
   }
 
-  function renderCities(cities) {
-    return cities.map(({ id, name }) => (
+  function renderCities(items) {
+    return items.map(({ id, name }) => (
       <option key={id} value={id}>
         {name}
       </option>
@@ -62,7 +58,7 @@ const FlightsForm = ({ flightsPost, citiesGet }) => {
               {renderCities(citiesFrom)}
             </select>
             {formik.touched.from && formik.errors.from ? (
-              <div>{formik.errors.from}</div>
+              <div className="error">{formik.errors.from}</div>
             ) : null}
           </div>
         </div>
@@ -75,7 +71,7 @@ const FlightsForm = ({ flightsPost, citiesGet }) => {
               {renderCities(citiesTo)}
             </select>
             {formik.touched.to && formik.errors.to ? (
-              <div>{formik.errors.to}</div>
+              <div className="error">{formik.errors.to}</div>
             ) : null}
           </div>
         </div>
@@ -91,7 +87,7 @@ const FlightsForm = ({ flightsPost, citiesGet }) => {
               {...formik.getFieldProps("time")}
             />
             {formik.touched.time && formik.errors.time ? (
-              <div>{formik.errors.time}</div>
+              <div className="error">{formik.errors.time}</div>
             ) : null}
           </div>
         </div>
@@ -106,7 +102,7 @@ const FlightsForm = ({ flightsPost, citiesGet }) => {
               {...formik.getFieldProps("seats")}
             />
             {formik.touched.seats && formik.errors.seats ? (
-              <div>{formik.errors.seats}</div>
+              <div className="error">{formik.errors.seats}</div>
             ) : null}
           </div>
         </div>

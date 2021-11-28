@@ -9,7 +9,7 @@ describe("FlightsForm", function () {
   beforeEach(() => {
     props = {
       flightsPost: jest.fn(),
-      citiesGet: jest.fn(),
+      cities: jest.fn(),
     }
   })
 
@@ -25,22 +25,20 @@ describe("FlightsForm", function () {
   })
 
   beforeEach(() => {
-    jest.spyOn(props, "citiesGet").mockResolvedValue({
-      data: [
-        {
-          id: "e66723d9-64b2-47ec-88a2-d56519a58ba2",
-          name: "Ciudad de México",
-        },
-        {
-          id: "793f1900-a9af-4a02-80f9-82752e01ad64",
-          name: "Monterrey",
-        },
-        {
-          id: "6168169c-fdb4-4434-9131-fb7e9ee68581",
-          name: "Guadalajara",
-        },
-      ],
-    })
+    jest.spyOn(props, "cities").mockReturnValue([
+      {
+        id: "e66723d9-64b2-47ec-88a2-d56519a58ba2",
+        name: "Ciudad de México",
+      },
+      {
+        id: "793f1900-a9af-4a02-80f9-82752e01ad64",
+        name: "Monterrey",
+      },
+      {
+        id: "6168169c-fdb4-4434-9131-fb7e9ee68581",
+        name: "Guadalajara",
+      },
+    ])
   })
 
   it("Create flight", async () => {

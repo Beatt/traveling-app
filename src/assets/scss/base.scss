@@ -6,6 +6,7 @@
 
 h1 {
   font-size: 52px;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -44,5 +45,9 @@ textarea {
 form {
   .form-content {
     margin-bottom: 15px;
+  }
+  .error {
+    color: indianred;
+    font-size: 12px;
   }
 }
