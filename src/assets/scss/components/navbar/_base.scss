@@ -10,3 +10,18 @@
     text-align: center;
   }
 }
+
+.navbar-icon {
+  p {
+    text-align: right;
+
+    @include respond-to(medium) {
+      text-align: left;
+    }
+
+    @include respond-to(small) {
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+}

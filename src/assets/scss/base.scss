@@ -6,6 +6,7 @@
 
 h1 {
   font-size: 52px;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -18,4 +19,35 @@ h3 {
 
 p {
   font-size: 17px;
+}
+
+button {
+  font-size: 16px;
+  border: none;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 2px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-block {
+  label {
+    display: block;
+    margin-bottom: 2px;
+  }
+}
+
+form {
+  .form-content {
+    margin-bottom: 15px;
+  }
+  .error {
+    color: indianred;
+    font-size: 12px;
+  }
 }
