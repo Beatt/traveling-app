@@ -12,7 +12,12 @@
     "class-methods-use-this": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": ["off"],
-    "react/function-component-definition": ["off"]
+    "react/function-component-definition": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "jsx-a11y/label-has-associated-control": ["off"],
+    "no-param-reassign": ["off"],
+    "import/no-extraneous-dependencies": ["warn"],
+    "no-use-before-define": ["warn"]
   },
   "parserOptions": {
     "sourceType": "module"
