@@ -1,0 +1,21 @@
+@import "reset";
+@import "helpers";
+@import "config";
+@import "components/base";
+@import "mixing/base";
+
+h1 {
+  font-size: 52px;
+}
+
+h2 {
+  font-size: 43px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+p {
+  font-size: 17px;
+}
