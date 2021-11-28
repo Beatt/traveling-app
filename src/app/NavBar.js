@@ -1,5 +1,4 @@
 import * as React from "react"
-import "./styles.scss"
 
 const NavBar = () => (
   <div className="navbar">
@@ -9,7 +8,9 @@ const NavBar = () => (
         <p>Traveling like a pro</p>
       </div>
       <div className="pure-u-1 pure-u-md-4-24">
-        <p>icono</p>
+        <div className="navbar-icon">
+          <p>icono</p>
+        </div>
       </div>
     </div>
   </div>
