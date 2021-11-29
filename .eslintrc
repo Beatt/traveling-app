@@ -15,9 +15,16 @@
     "react/function-component-definition": ["off"],
     "react/jsx-props-no-spreading": ["off"],
     "jsx-a11y/label-has-associated-control": ["off"],
+    "jsx-a11y/anchor-is-valid": [ "off"],
     "no-param-reassign": ["off"],
     "import/no-extraneous-dependencies": ["warn"],
-    "no-use-before-define": ["warn"]
+    "no-use-before-define": ["warn"],
+    "no-restricted-syntax": ["warn"],
+    "no-plusplus": ["warn"],
+    "react/no-array-index-key": ["warn"],
+    "jsx-a11y/click-events-have-key-events": ["warn"],
+    "jsx-a11y/no-static-element-interactions": ["warn"],
+    "react/jsx-no-bind": ["warn"],
   },
   "parserOptions": {
     "sourceType": "module"

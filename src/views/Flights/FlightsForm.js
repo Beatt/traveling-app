@@ -6,7 +6,7 @@ import validationSchema from "./validationSchema"
 
 const { useState } = React
 
-const FlightsForm = ({ flightsPost, cities }) => {
+const FlightsForm = ({ saveFlight, cities }) => {
   const navigate = useNavigate()
   const [citiesTo] = useState(cities || [])
   const [citiesFrom] = useState(cities || [])
@@ -14,8 +14,9 @@ const FlightsForm = ({ flightsPost, cities }) => {
     initialValues: {
       to: "",
       from: "",
-      time: "",
       seats: "",
+      startDate: "",
+      endDate: "",
     },
     validationSchema,
     onSubmit: handleSubmit,
@@ -23,14 +24,15 @@ const FlightsForm = ({ flightsPost, cities }) => {
 
   async function handleSubmit(values) {
     try {
-      await flightsPost({
+      await saveFlight({
         from: values.from,
         to: values.to,
-        time: values.time,
         seats: values.seats,
+        startDate: values.startDate,
+        endDate: values.endDate,
       })
       navigate("/flights/available")
-    } catch {
+    } catch (e) {
       Snackbar.show({ message: "Lo sentimos ha ocurrido un error!" })
     }
   }
@@ -78,17 +80,36 @@ const FlightsForm = ({ flightsPost, cities }) => {
       </div>
       <div className="pure-g">
         <div className="pure-u-1 pure-u-sm-11-24">
-          <div className="form-content">
-            <label htmlFor="flight_time">Horario</label>
-            <input
-              type="text"
-              id="time"
-              name="time"
-              {...formik.getFieldProps("time")}
-            />
-            {formik.touched.time && formik.errors.time ? (
-              <div className="error">{formik.errors.time}</div>
-            ) : null}
+          <div className="pure-g">
+            <div className="pure-u-1 pure-u-sm-11-24">
+              <div className="form-content">
+                <label htmlFor="flight_time">Salida</label>
+                <input
+                  type="date"
+                  id="flight_startDate"
+                  name="startDate"
+                  {...formik.getFieldProps("startDate")}
+                />
+                {formik.touched.startDate && formik.errors.startDate ? (
+                  <div className="error">{formik.errors.startDate}</div>
+                ) : null}
+              </div>
+            </div>
+            <div className="pure-u-1 pure-u-sm-2-24" />
+            <div className="pure-u-1 pure-u-sm-11-24">
+              <div className="form-content">
+                <label htmlFor="flight_time">Regreso</label>
+                <input
+                  type="date"
+                  id="flight_endDate"
+                  name="endDate"
+                  {...formik.getFieldProps("endDate")}
+                />
+                {formik.touched.endDate && formik.errors.endDate ? (
+                  <div className="error">{formik.errors.endDate}</div>
+                ) : null}
+              </div>
+            </div>
           </div>
         </div>
         <div className="pure-u-1 pure-u-sm-2-24" />

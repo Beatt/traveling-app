@@ -1,5 +1,5 @@
-import { act } from "react-dom/test-utils"
 import faker from "faker"
+import { act } from "react-dom/test-utils"
 
 export class FlightsFormPages {
   static selectedFromCiudadMexico(wrapper) {
@@ -14,8 +14,14 @@ export class FlightsFormPages {
     field.simulate("change")
   }
 
-  static fillDate(wrapper, value) {
-    const field = wrapper.find('[name="time"]').at(0)
+  static fillStartDate(wrapper, value) {
+    const field = wrapper.find('[name="startDate"]').at(0)
+    field.instance().value = value
+    field.simulate("change")
+  }
+
+  static fillEndDate(wrapper, value) {
+    const field = wrapper.find('[name="endDate"]').at(0)
     field.instance().value = value
     field.simulate("change")
   }
@@ -29,10 +35,17 @@ export class FlightsFormPages {
   static fillRandomFlight(wrapper) {
     FlightsFormPages.selectedFromCiudadMexico(wrapper)
     FlightsFormPages.selectedToGuadalajara(wrapper)
-    FlightsFormPages.fillDate(wrapper, faker.date.recent().toLocaleDateString())
+    FlightsFormPages.fillStartDate(
+      wrapper,
+      faker.date.recent().toISOString().split("T")[0]
+    )
+    FlightsFormPages.fillEndDate(
+      wrapper,
+      faker.date.future().toISOString().split("T")[0]
+    )
     FlightsFormPages.fillSeats(
       wrapper,
-      faker.datatype.number({ min: 1, max: 9 })
+      faker.datatype.number({ min: 1, max: 6 })
     )
   }
 

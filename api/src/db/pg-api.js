@@ -11,17 +11,21 @@ const pgApiWrapper = async () => {
       const pgResp = await pgQuery(sqls.citiesAll)
       return pgResp.rows
     },
-    flightsTo: async (date, cityId) => {
-      const pgResp = await pgQuery(sqls.flightsTo, { $1: date, $2: cityId })
+    flightsTo: async (cityId) => {
+      const pgResp = await pgQuery(sqls.flightsTo, { $1: cityId })
       return pgResp.rows
     },
-    flightsFrom: async (date, cityId) => {
-      const pgResp = await pgQuery(sqls.flightsFrom, { $1: date, $2: cityId })
+    flightsFrom: async (cityId) => {
+      const pgResp = await pgQuery(sqls.flightsFrom, { $1: cityId })
       return pgResp.rows
     },
     flightPriceByFlightId: async (id) => {
       const pgResp = await pgQuery(sqls.flightPriceByFlightId, { $1: id })
       return pgResp.rows
+    },
+    flightPriceById: async (id) => {
+      const pgResp = await pgQuery(sqls.flightPriceById, { $1: id })
+      return pgResp.rows[0] || {}
     },
   }
 }

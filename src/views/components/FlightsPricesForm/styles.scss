@@ -1,0 +1,72 @@
+@import "../../../assets/scss/base";
+
+.flight-container {
+  border: 1px solid #cccccc;
+  padding: 50px 5px;
+  margin: 20px 0;
+}
+
+.flight-header {
+  .pure-g {
+    & > * {
+      @include respond-to(small) {
+        &:nth-child(2),
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.flight-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  @include respond-to(small) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+.flight-card__departure-time,
+.flight-card__arrival-time {
+  font-size: 18px;
+}
+
+.flight-card__time {
+  position: relative;
+  width: 350px;
+
+  & > * {
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    &:first-child {
+      top: -15px;
+      right: 0;
+      left: 0;
+    }
+    &:nth-child(2) {
+      border-bottom: 1px solid;
+      width: 100%;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+    &:last-child {
+      bottom: -15px;
+      right: 0;
+      left: 0;
+    }
+  }
+}
+
+.flight-prices {
+  @include respond-to(small) {
+    margin-top: 50px;
+  }
+}

@@ -6,18 +6,21 @@ export default {
   flightsTo: `
     SELECT *
     FROM traveling.flight
-    WHERE traveling.flight.flight_at = $1
-    AND to_city = $2
+    WHERE to_city = $1
   `,
   flightsFrom: `
     SELECT *
     FROM traveling.flight
-    WHERE traveling.flight.flight_at = $1
-    AND to_from = $2
+    WHERE from_city = $1
   `,
   flightPriceByFlightId: `
     SELECT *
     FROM traveling.flight_price
     WHERE flight_id = $1
+  `,
+  flightPriceById: `
+    SELECT *
+    FROM traveling.flight_price
+    WHERE id = $1
   `,
 }

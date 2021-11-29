@@ -1,4 +1,5 @@
 import express from "express"
+import cors from "cors"
 import * as config from "./config"
 import pgApiWrapper from "./db/pg-api"
 
@@ -6,6 +7,11 @@ const buildUrl = (version, path) => `/api/${version}/${path}`
 
 async function main() {
   const server = express()
+  server.use(
+    cors({
+      origin: "http://localhost:3000",
+    })
+  )
   const pgApi = await pgApiWrapper()
 
   server.use(buildUrl("v1", "ping"), (req, res) => {
@@ -17,12 +23,18 @@ async function main() {
   })
 
   server.use(buildUrl("v1", "flights"), async (req, res) => {
-    const { date, city_id } = req.query
+    const { city_id } = req.query
     if (req.query.type === "to") {
-      return res.json(await pgApi.flightsTo(date, city_id))
+      return res.json(await pgApi.flightsTo(city_id))
     }
 
-    return res.json(await pgApi.flightsFrom(date, city_id))
+    return res.json(await pgApi.flightsFrom(city_id))
+  })
+
+  server.use(buildUrl("v1", "flightsPrices/:id"), async (req, res) => {
+    const { id } = req.params
+
+    res.json(await pgApi.flightPriceById(id))
   })
 
   server.use(buildUrl("v1", "flightsPrices"), async (req, res) => {

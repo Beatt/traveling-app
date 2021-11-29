@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { citiesGet } from "../../../api/citie"
+import { citiesGet } from "../../../api/cities"
 
 export const retrieveCities = createAsyncThunk("cities/retrieve", async () => {
   const { data } = await citiesGet()
