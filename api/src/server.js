@@ -9,7 +9,7 @@ async function main() {
   const server = express()
   server.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: true,
     })
   )
   const pgApi = await pgApiWrapper()
