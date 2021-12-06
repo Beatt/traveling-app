@@ -9,8 +9,7 @@ const Thanks = () => {
         <div className="pure-u-1 pure-u-md-1-3" />
         <div className="pure-u-1 pure-u-md-1-3">
           <h1>
-            ¡Gracias! <br />
-            Hemos reservado tus vuelos.
+            Gracias por tu reserva!
           </h1>
           <p className="mb-20">Nombre: {searchParams.get("fullName")}</p>
           <p className="mb-20">Apellidos: {searchParams.get("surnames")}</p>

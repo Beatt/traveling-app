@@ -115,9 +115,9 @@ const FlightsForm = ({ saveFlight, cities }) => {
         <div className="pure-u-1 pure-u-sm-2-24" />
         <div className="pure-u-1 pure-u-sm-11-24">
           <div className="form-content">
-            <label htmlFor="flight_seats">Asientos</label>
+            <label htmlFor="flight_seats">Cantidad de asientos</label>
             <input
-              type="text"
+              type="number"
               id="flight_seats"
               name="seats"
               {...formik.getFieldProps("seats")}

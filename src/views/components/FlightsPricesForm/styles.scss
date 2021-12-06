@@ -38,7 +38,11 @@
 
 .flight-card__time {
   position: relative;
-  width: 350px;
+  width: 330px;
+
+  @include respond-to(small) {
+    width: 260px;
+  }
 
   & > * {
     position: absolute;
@@ -48,6 +52,10 @@
       top: -15px;
       right: 0;
       left: 0;
+
+      @include respond-to(small) {
+        left: 80px;
+      }
     }
     &:nth-child(2) {
       border-bottom: 1px solid;
@@ -56,11 +64,17 @@
       left: 0;
       top: 0;
       bottom: 0;
+      @include respond-to(small) {
+        width: inherit;
+      }
     }
     &:last-child {
       bottom: -15px;
       right: 0;
       left: 0;
+      @include respond-to(small) {
+        left: 80px;
+      }
     }
   }
 }
