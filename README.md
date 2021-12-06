@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Prueba técnica TrueHome
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Crear una aplicación web para el agendado de boletos de una aerolínea. En esta prueba
+técnica se evaluará la creatividad y diseño presentado, la organización de código, la lógica
+de creación de componentes y funcionalidad. El diseño y la experiencia de usuario deben
+ser preferentemente de tu autoría, evita utilizar frameworks de diseño (Bootstrap, Material,
+Bulma) lo importante no es que “se vea bonito” si no que demuestres un manejo de CSS y
+puedas crear layouts responsivas por tu cuenta.
 
-## Available Scripts
+## Dependencias
+1. Docker
+2. Node >= 12
+3. Yarn
 
-In the project directory, you can run:
+## Tecnologías utilizadas
+- React
+- React Router
+- Redux
+- React Modal
+- Axios
+- Formik
+- Express
+- Postgresql
+- Docker
+- Jest
+- Enzyme
+- Fishery
+- Faker
+- Eslint
+- Prettier
+- SASS
 
-### `yarn start`
+## Local
+1. git clone git@github.com:Beatt/traveling-app.git
+2. cd traveling-app
+3. yarn install
+4. yarn api-server
+5. docker-compose -f docker.yml up
+6. yarn start 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tests
+1. yarn test -- --coverage --watchAll
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Casos de prueba cubiertos
 
-### `yarn test`
+1. Página de inicio (flight)
+    1. Guardar vuelo
+    2. Mostrar mensaje de error si falla el guardado del vuelo
+2. Selección de precios
+    1. Guardar el precio seleccionado
+3. Carrito
+   1. Reservar un vuelo
+   2. Eliminar un vuelo
+   3. Mostrar el total de pago por los vuelos seleccionados
+   4. Limpiar carrito
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Extra
+[Estructura de carpetas y ejemplos de cómo testear componentes en React](https://github.com/Beatt/testing-react-project)

@@ -64,7 +64,7 @@ describe("FlightsForm", function () {
       to: "6168169c-fdb4-4434-9131-fb7e9ee68581",
       from: "e66723d9-64b2-47ec-88a2-d56519a58ba2",
       startDate: "2021-12-08",
-      seats: "3",
+      seats: 3,
     })
   })
 
